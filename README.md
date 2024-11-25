@@ -1,4 +1,5 @@
-#Dynamic-Vehicle-Identification-and-Tracker
+**#Dynamic-Vehicle-Identification-and-Tracker
+**
 This project is about Vehicle Number plate Identification
 
 The Dynamic Vehicle Identification and Tracker is a powerful tool for automating vehicle license plate detection and recognition. Designed with a user-friendly interface, the system processes uploaded images to extract license plate information efficiently. Admin controls enhance usability by offering user management and system monitoring capabilities. The project is aimed at improving security, streamlining traffic monitoring, and automating access control for facilities.

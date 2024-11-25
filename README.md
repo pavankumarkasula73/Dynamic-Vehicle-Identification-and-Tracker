@@ -15,9 +15,5 @@ Build a system to detect and recognize car license plates from images. The appli
 
 • Working search and export functionalities for detected license plates.
 
-• Fully integrated and functional Streamlit application.
-
-• Successful deployment on Streamlit Cloud.
-
 • Satisfactory performance in license plate detection and recognition on various 
 images.

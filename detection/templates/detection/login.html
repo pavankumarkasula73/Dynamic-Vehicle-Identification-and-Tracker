@@ -1,0 +1,193 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Global styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            animation: backgroundAnimation 15s infinite alternate;
+        }
+
+        .background-shape {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #fff, #6a11cb);
+            border-radius: 50%;
+            top: -100px;
+            right: -150px;
+            z-index: -2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .background-shape-secondary {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #6a11cb, #fff);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -100px;
+            z-index: -2;
+            animation: floatSecondary 8s ease-in-out infinite;
+        }
+
+        /* Keyframes for floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes floatSecondary {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(40px); }
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            z-index: 1;
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+
+        /* Login container styling */
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.3s ease;
+            z-index: 2;
+        }
+
+        .login-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #3b5998;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        /* Button styling */
+        .btn {
+            background-color: #2575fc;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1b5dbf;
+            transform: scale(1.05);
+        }
+
+        .text-center a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #1e293b;
+            color: #d1d5db;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background shapes -->
+    <div class="background-shape"></div>
+    <div class="background-shape-secondary"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Dynamic Vehicle Identification</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+        </div>
+    </nav>
+    
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <h1>Login Here 👇!</h1>
+        <form method="POST" action="http://127.0.0.1:8000/dashboard/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div class="register-link mt-3">
+            <p>Don’t have an account? <a href="/register/">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Dynamic Vehicle Identification | 
+            <a href="{% url 'about' %}">About</a> | 
+            <a href="{% url 'carrers' %}">Careers</a> | 
+            <a href="{% url 'contact' %}">Contact</a> | 
+            <a href="{% url 'privacy' %}">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

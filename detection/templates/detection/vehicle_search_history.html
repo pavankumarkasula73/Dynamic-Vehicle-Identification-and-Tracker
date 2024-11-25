@@ -1,0 +1,36 @@
+<!-- vehicle_search_history.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Search History</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Your Vehicle Search History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in search_history %}
+                <tr>
+                    <td>{{ record.search_date }}</td>
+                    <td><img src="{{ record.image.url }}" alt="Uploaded Image" width="100"></td>
+                    <td>{{ record.result }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No search history found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'upload_image' %}">Back to Upload</a>
+</body>
+</html>

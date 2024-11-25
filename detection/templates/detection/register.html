@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #3f51b5, #6200ea);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #6200ea;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .container input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .container button {
+            padding: 10px;
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #3f51b5;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .message a {
+            color: #6200ea;
+            text-decoration: none;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+        /* Keyframes for floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+        /* Navbar styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            z-index: 1;
+            
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 20px;
+            text-decoration: none;
+        }
+        
+        /* Footer styling */
+        .footer {
+            background-color: #1e293b;
+            color: #d1d5db;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+        
+
+
+        
+    </style>
+</head>
+<body>
+    
+    <!-- Background shapes -->
+    <div class="background-shape"></div>
+    <div class="background-shape-secondary"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Dynamic Vehicle Identification</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Register</h2>
+        <form method="POST" action="http://127.0.0.1:8000/login/">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="password2">Confirm Password:</label>
+            <input type="password" id="password2" name="password2" required>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <div class="message">
+            Already have an account? <a href="{% url 'login' %}">Login here</a>.
+        </div>
+    </div>
+    <div class="background-shape"></div>
+    <div class="background-shape-secondary"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Dynamic Vehicle Identification | 
+            <a href="{% url 'about' %}">About</a> | 
+            <a href="{% url 'carrers' %}">Careers</a> | 
+            <a href="{% url 'contact' %}">Contact</a> | 
+            <a href="{% url 'privacy' %}">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+{% extends 'detection/base1.html' %}
+{% block content %}
+{% load tz %}
+<div class="messages">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="upload-container">
+    <div class="upload-box">
+        <h1>Your Account Details</h1>
+        <div class="user-details">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Joined On:</strong> {{ user.date_joined|date:"d M Y" }}</p>
+        </div>
+
+        <h2>Your Upload History</h2>
+        {% if upload_history %}
+        {% load tz %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>File Type</th>
+                        <th>Upload Date</th>
+                        <!--<th>Detected Plate</th> -->
+                        <!--<th>State</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for upload in upload_history %}
+                        <tr>
+                            <td>{{ upload.file_name }}</td>
+                            <td>{{ upload.file_type }}</td>
+                            <td>{% timezone "Asia/Kolkata" %}{{ upload.upload_date|date:"d M Y H:i" }}{% endtimezone %}</td>
+                            <!--<td>{{ upload.upload_date|date:"d M Y H:i" }}</td> -->
+                            <!--<td>{{ upload.detected_plate|default:"N/A" }}</td> -->
+                            <!--<td>{{ upload.state|default:"N/A" }}</td>-->
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">No search history available.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No upload history found.</p>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    /* Main container */
+    .upload-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        
+    }
+
+    /* Upload box styling */
+    .upload-box {
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 110%;
+        max-width: 800px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    h1, h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* User details styling */
+    .user-details {
+        margin-bottom: 20px;
+        text-align: left;
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Table styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    /* Removing background change on hover */
+    .upload-submit:hover {
+        transform: scale(1.05);
+    }
+
+    /* Message styles */
+    .messages {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .message {
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 5px 0;
+    }
+    .message.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+</style>
+
+{% endblock %}

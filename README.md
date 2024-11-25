@@ -1,19 +1,36 @@
-# Dynamic-Vehicle-Identification-and-Tracker
-Build a system to detect and recognize car license plates from images. The application will  provide a user interface for uploading images and viewing the detected license plates. The  system will include user authentication, allowing for secure access to the functionalities. 
+Dynamic-Vehicle-Identification-and-Tracker
+This project is about Vehicle Number plate Identification
 
-• Successful implementation of user registration and login functionality.
+The Dynamic Vehicle Identification and Tracker is a powerful tool for automating vehicle license plate detection and recognition. Designed with a user-friendly interface, the system processes uploaded images to extract license plate information efficiently. Admin controls enhance usability by offering user management and system monitoring capabilities. The project is aimed at improving security, streamlining traffic monitoring, and automating access control for facilities.
 
-• Proper functioning of the admin dashboard with user management capabilities.
+Key Features
 
-• Accurate detection of license plates in images from the Kaggle dataset.
+Authentication and Support:
 
-• Successful recognition of characters on the detected license plates.
+Sign-Up and Sign-In: Secure access for all users.
 
-• Functional image upload and processing interface.
+Forget Password: Password recovery feature.
 
-• Clear display of detected license plates and associated information.
+Contact Us: Page for addressing user queries.
 
-• Working search and export functionalities for detected license plates.
+Services:
 
-• Satisfactory performance in license plate detection and recognition on various 
-images.
+Image Upload: Identifies the state name from the license plate in uploaded images.
+
+Video Upload: Detects vehicle number plates and their corresponding state names from video files.
+
+User Features:
+
+View personal search history for uploaded images and videos.
+
+Admin Controls:
+
+Manage user profiles and accounts. Monitor and access user upload history.
+
+Technologies Used
+
+Backend: Python, OpenCV, Tesseract OCR.
+
+Frontend: HTML,CSS,Java Script
+
+Database: SQLite for secure data storage.

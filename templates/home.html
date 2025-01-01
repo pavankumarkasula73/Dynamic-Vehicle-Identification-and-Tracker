@@ -1,0 +1,65 @@
+{% extends 'detection/base1.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+{% else %}
+    <p>Please log in to access this page.</p>
+{% endif %}
+
+<div class="main-content">
+    <div class="info-box">
+        <h2>About Dynamic Vehicle Identification</h2>
+        <p>Welcome to Vehicle Identification! We specialize in cutting-edge vehicle identification services designed to bring efficiency and accuracy to vehicle information extraction. Our "Dynamic Vehicle Identification" system offers two powerful features that make it easy to identify vehicles in real-time from both images and videos.</p>
+
+        <h3>Our Services</h3>
+        
+        <h4>Image Upload:</h4>
+        <p>With just an image of a vehicle, our software can accurately extract the vehicle's number plate and identify the state it's registered in. This feature is perfect for those who need quick, reliable information from still images.</p>
+
+        <h4>Video Upload:</h4>
+        <p>For moving vehicles, our video analysis tool captures the vehicle’s number plate and delivers all relevant details, including the plate number and the state of registration. This service is ideal for identifying vehicles in live-action footage, ensuring that you get the most accurate information without manually analyzing each frame.</p>
+
+        <p>Our platform is built with state-of-the-art image processing and machine learning technology, making vehicle identification fast, reliable, and accessible. Whether you’re a business, government agency, or individual, our tools help streamline vehicle identification in a way that's both user-friendly and highly effective.</p>
+    </div>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    body {
+        background: url('https://img.freepik.com/fotos-premium/trafico-nocturno-carretera-shanghai-china_1026019-17276.jpg?w=1060') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: flex-start;
+    }
+    .main-content {
+        margin-top: 50px; /* Reduced space between navbar and container */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: 30px; /* Space between content and footer */
+    }
+    .info-box {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 900px; /* Increased width */
+        width: 90%; /* Adjust to take up more space */
+        text-align: center;
+        margin-bottom: 30px; /* Space between container and footer */
+    }
+</style>
+
+{% endblock %}

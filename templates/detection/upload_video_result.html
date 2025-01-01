@@ -1,0 +1,123 @@
+{% extends 'detection/base1.html' %}
+{% block content %}
+
+<div class="messages">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="result-container">
+    <h1>Detected Number Plates</h1>
+    {% if vehicle_data %}
+        <table class="detected-plates-table">
+            <thead>
+                <tr>
+                    <th>Vehicle Number</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number, state in vehicle_data %}
+                <tr>
+                    <td>{{ number }}</td>
+                    <td>{{ state }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No number plates detected in the video.</p>
+    {% endif %}
+    <a href="{% url 'upload_video' %}" class="btn">Upload another video</a>
+</div>
+
+<style>
+    /* Result container styling */
+    .result-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 450px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Header */
+    h1 {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    /* Table styling */
+    .detected-plates-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 1em;
+        text-align: left;
+    }
+    .detected-plates-table th, .detected-plates-table td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+    .detected-plates-table th {
+        background-color: #f4f4f4;
+        color: #333;
+        text-transform: uppercase;
+    }
+    .detected-plates-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Messages styling */
+    .messages {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .message {
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 5px 0;
+    }
+    .message.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    .message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    /* Button styling */
+    .btn {
+        display: inline-block;
+        width: 100%;
+        background: #333;
+        color: white;
+        padding: 12px;
+        border: none;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+{% endblock %}
